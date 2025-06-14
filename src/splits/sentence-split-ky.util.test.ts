@@ -17,9 +17,13 @@ describe("splitIntoSentencesSimpleKy", () => {
   });
 
   it("do not split name", () => {
-    let input = `R.R. Kelly`;
+    const input = `R.R. Kelly`;
     expect(splitIntoSentencesSimpleKy(input).length).toEqual(1);
   });
-
+  it("split this EV. ", () => {
+    const input = `высокопроизводительный EV. Моя главная причина`;
+    console.log(splitIntoSentencesSimpleKy(input));
+    expect(splitIntoSentencesSimpleKy(input).length).toEqual(2);
+  });
   
 });

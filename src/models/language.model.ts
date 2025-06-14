@@ -22,7 +22,7 @@ export enum LanguageCode {
     MS = 'ms',
     HI = 'hi',
     AR = 'ar',
-    HE = 'he',
+    IW = 'iw',
     FA = 'fa',
     PT = 'pt'
 }

@@ -1,6 +1,6 @@
-export const splitIntoSentencesSimpleHi = (text: string): string[] => {
+export const splitIntoSentencesSimpleIw = (text: string): string[] => {
   // List of known abbreviations (add more as needed)
-  const abbreviations = ['डॉ', 'R', 'आर', 'डॉ', 'Dr', 'आर.आर', 'R.R'];
+  const abbreviations = ['डॉ', 'R', 'आर', 'डॉ', 'Dr', 'आर.आर', 'R.R', 'jr'];
 
   // Temporarily replace periods in known abbreviations with a placeholder
   let protectedText = text;

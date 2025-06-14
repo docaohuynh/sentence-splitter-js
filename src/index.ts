@@ -1,2 +1,3 @@
 export { splitSentenceByLanguge } from './sentence/sentences.util'
-export type { LanguageCode, LanguageModel } from './models/language.model'
+export type { LanguageModel } from './models/language.model'
+export { LanguageCode } from './models/language.model'

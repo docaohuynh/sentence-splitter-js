@@ -7,16 +7,15 @@ export const splitIntoSentencesSimpleKy = (text: string): string[] => {
     match.replace(/[!?]/g, dashPlaceholder)
   );
 
-  // Step 2: Protect abbreviation dots (e.g., "Дж." => "Дж___NO_SPLIT_DOT___")
-  // Match any word (1–4 letters) ending with a period
+  // Step 2: Protect abbreviation dots (e.g., "EV." or "Дж." => "EV___NO_SPLIT_DOT___")
+  // Match any word (1–4 letters, Cyrillic or Latin) ending with a period, not followed by a lowercase letter
   safeText = safeText.replace(
-    /\b([А-ЯЁа-яёA-Za-z]{1,4})\./g,
+    /\b([А-ЯЁа-яёA-Za-z]{1,4})\.(?![а-яёa-z])/g,
     (_, abbr) => `${abbr}${dotPlaceholder}`
   );
 
-  // Step 3: Split at sentence-ending punctuation followed by whitespace
-  // Only split on unprotected .!? followed by whitespace
-  const rawSentences = safeText.split(/(?<!___NO_SPLIT_DOT___)(?<=[.!?])\s+/);
+  // Step 3: Split at unprotected sentence-ending punctuation followed by whitespace or end of string
+  const rawSentences = safeText.split(/(?<!___NO_SPLIT_DOT___)[.!?]\s+(?=[А-ЯЁA-Z])/);
 
   // Step 4: Restore protected characters
   return rawSentences
