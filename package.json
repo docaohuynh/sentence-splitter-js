@@ -1,0 +1,21 @@
+{
+  "name": "sentence-splitter",
+  "type": "module",
+  "scripts": {
+    "build": "vite build"
+  },
+  "main": "dist/sentence-splitter.cjs.js",
+  "module": "dist/sentence-splitter.es.js",
+  "types": "dist/index.d.ts",
+  "devDependencies": {
+    "@types/bun": "latest",
+    "vite": "^6.3.5",
+    "vite-plugin-dts": "^4.5.4"
+  },
+  "peerDependencies": {
+    "typescript": "^5.8.3"
+  },
+  "dependencies": {
+    "bun": "^1.2.16"
+  }
+}
