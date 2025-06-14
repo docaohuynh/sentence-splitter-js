@@ -1,12 +1,28 @@
 {
-  "name": "sentence-splitter",
-  "type": "module",
-  "scripts": {
-    "build": "vite build"
-  },
+  "name": "@docaohuynh/sentence-splitter",
+  "version": "1.0.1",
   "main": "dist/sentence-splitter.cjs.js",
   "module": "dist/sentence-splitter.es.js",
   "types": "dist/index.d.ts",
+  "type": "module",
+  "exports": {
+    ".": {
+      "import": "./dist/sentence-splitter.es.js",
+      "require": "./dist/sentence-splitter.cjs.js"
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/docaohuynh/sentence-splitter-js.git"
+  },
+  "homepage": "https://github.com/docaohuynh/sentence-splitter-js",
+  "bugs": {
+    "url": "https://github.com/docaohuynh/sentence-splitter-js/issues"
+  },
+  "scripts": {
+    "build": "vite build"
+  },
+
   "devDependencies": {
     "@types/bun": "latest",
     "vite": "^6.3.5",
