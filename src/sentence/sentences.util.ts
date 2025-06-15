@@ -1,5 +1,5 @@
 import type { LanguageCode } from "../models/language.model";
-import { splitIntoSentencesSimple, splitIntoSentencesSimpleAr, splitIntoSentencesSimpleEs, splitIntoSentencesSimpleFa, splitIntoSentencesSimpleIw, splitIntoSentencesSimpleJa, splitIntoSentencesSimpleKo, splitIntoSentencesSimpleKy, splitIntoSentencesSimpleLo, splitIntoSentencesSimpleUr, splitIntoSentencesSimpleVi } from "../splits";
+import { splitIntoSentencesSimple, splitIntoSentencesSimpleAr, splitIntoSentencesSimpleEs, splitIntoSentencesSimpleFa, splitIntoSentencesSimpleHe, splitIntoSentencesSimpleJa, splitIntoSentencesSimpleKo, splitIntoSentencesSimpleKy, splitIntoSentencesSimpleLo, splitIntoSentencesSimpleUr, splitIntoSentencesSimpleVi } from "../splits";
 
 
 export const splitSentenceByLanguge = (sentence: string, languageCode: LanguageCode): string[] => {
@@ -31,8 +31,8 @@ export const splitSentenceByLanguge = (sentence: string, languageCode: LanguageC
       case 'ar':
         return splitIntoSentencesSimpleAr(sentence)
       case 'hi':
-      case 'iw':
-        return splitIntoSentencesSimpleIw(sentence)
+      case 'he':
+        return splitIntoSentencesSimpleHe(sentence)
       case 'fa':
         return splitIntoSentencesSimpleFa(sentence)
       case 'es':
