@@ -9,3 +9,4 @@ export * from "../splits/sentence-split-lo.util";
 export * from "../splits/sentence-split-ur.util";
 export * from "../splits/sentence-split-vi.util";
 export * from "../splits/sentence-split.util";
+export * from './paragraph-split.util';
