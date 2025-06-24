@@ -1,12 +1,14 @@
 export const splitIntoSentencesSimpleKo = (text: string): string[] => {
-  // This regex handles typical sentence enders in Korean: . ? ! and includes cases with Korean-specific sentence markers like "다."
-  const sentenceEndRegex = /(?<=[\.!?])\s+|(?<=[다|요|까])[\.!?]\s+/g;
-  
-  // First, replace any newlines with spaces to normalize the input
+  // Normalize whitespace
   const normalizedText = text.replace(/\s+/g, ' ').trim();
 
-  // Split text based on sentence-ending punctuation
-  const sentences = normalizedText.split(sentenceEndRegex).map(sentence => sentence.trim()).filter(Boolean);
+  // Match sentence-ending expressions in Korean more precisely
+  // Look for patterns like: "다.", "요.", "까.", etc., followed by space or end of string
+  const sentenceEndRegex = /(?<=[다요까])\.(?=\s|$)/g;
+
+  // Insert a special delimiter at those points, then split by it
+  const markedText = normalizedText.replace(sentenceEndRegex, '.|SPLIT|');
+  const sentences = markedText.split('|SPLIT|').map(s => s.trim()).filter(Boolean);
 
   return sentences;
 }
