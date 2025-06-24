@@ -11,5 +11,33 @@ describe("splitIntoSentencesSimpleKo", () => {
     expect(splitIntoSentencesSimpleKo(input).length).toEqual(2);
     expect(splitIntoSentencesSimpleKo(input)[0]).toEqual('직장 생활 균형을 달성하려면 지정된 근무 시간 및 개인 시간과 같은 경계를 설정해야합니다.');
   });
+  it("split into 2 sentences", () => {
+    var input = "있다고 생각합니다. 저는 밝은 노란";
+    expect(splitIntoSentencesSimpleKo(input).length).toEqual(2);
+    expect(splitIntoSentencesSimpleKo(input)[0]).toEqual('있다고 생각합니다.');
+
+    input = "사람들이라면 더욱 그렇죠. 함께 환호하고";
+    expect(splitIntoSentencesSimpleKo(input).length).toEqual(2);
+    expect(splitIntoSentencesSimpleKo(input)[0]).toEqual('사람들이라면 더욱 그렇죠.');
+  });
+  it("split into 2 sentences", () => {
+    var input = "없어요. TV 광고의 경우";
+    expect(splitIntoSentencesSimpleKo(input).length).toEqual(2);
+
+    input = "없어요! TV 광고의 경우";
+    expect(splitIntoSentencesSimpleKo(input).length).toEqual(2);
+  });
+  it("split into 2 sentences", () => {
+    var input = "암벽 등반. 나는 그것에 ";
+    expect(splitIntoSentencesSimpleKo(input).length).toEqual(2);
+    expect(splitIntoSentencesSimpleKo(input)[0]).toEqual('암벽 등반.');
+  });
+  it("split into 2 sentences", () => {
+    var input = "아니지만요! 2025년";
+    expect(splitIntoSentencesSimpleKo(input).length).toEqual(2);
+    expect(splitIntoSentencesSimpleKo(input)[0]).toEqual('아니지만요!');
+  });
+  
+  
   
 });
