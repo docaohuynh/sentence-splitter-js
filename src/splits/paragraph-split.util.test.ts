@@ -1,6 +1,6 @@
 
 import { expect, describe, it } from "bun:test";
-import { splitTextByParagraphAndSentenceWithSpacing } from "./paragraph-split.util";
+import { splitTextByNewLine, splitTextByParagraphAndSentenceWithSpacing } from "./paragraph-split.util";
 
 describe('splitTextByParagraphAndSentenceWithSpacing', () => {
   it('should split a single paragraph into individual sentences with spacing', () => {
@@ -38,5 +38,38 @@ Second paragraph sentence one. Second paragraph sentence two.`;
     const input = `This is one paragraph without punctuation`;
     const expected = `This is one paragraph without punctuation`;
     expect(splitTextByParagraphAndSentenceWithSpacing(input)).toBe(expected);
+  });
+});
+
+
+describe('splitTextByNewLine', () => {
+  it('should split text by new lines and trim each line', () => {
+    const input = ' Line one \n Line two \n Line three ';
+    const result = splitTextByNewLine(input);
+    expect(result).toEqual(['Line one', 'Line two', 'Line three']);
+  });
+
+  it('should remove empty lines', () => {
+    const input = '\nLine one\n\nLine two\n\n\nLine three\n';
+    const result = splitTextByNewLine(input);
+    expect(result).toEqual(['Line one', 'Line two', 'Line three']);
+  });
+
+  it('should handle Windows newlines (\\r\\n)', () => {
+    const input = 'Line one\r\nLine two\r\n\r\nLine three\r\n';
+    const result = splitTextByNewLine(input);
+    expect(result).toEqual(['Line one', 'Line two', 'Line three']);
+  });
+
+  it('should return an empty array for empty input', () => {
+    const input = '';
+    const result = splitTextByNewLine(input);
+    expect(result).toEqual([]);
+  });
+
+  it('should trim whitespace-only lines and remove them', () => {
+    const input = '   \n\t\nLine one\n  \nLine two\n';
+    const result = splitTextByNewLine(input);
+    expect(result).toEqual(['Line one', 'Line two']);
   });
 });

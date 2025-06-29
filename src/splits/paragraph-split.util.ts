@@ -20,3 +20,10 @@ export const splitTextByParagraphAndSentenceWithSpacing = (text: string): string
 
   return result.join('\n\n\n'); // extra blank line between paragraphs
 }
+
+export const splitTextByNewLine = (text: string): string[] => {
+  return text
+    .split(/\r?\n/)
+    .map(line => line.trim())
+    .filter(line => line.length > 0);
+}
