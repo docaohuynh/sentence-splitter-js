@@ -15,7 +15,6 @@ export const splitSentenceByLanguge = (sentence: string, languageCode: LanguageC
       case 'th':
       case 'km':
       case 'my':
-        console.log(`not support Thai, Khmer, Myanmar (Burmese) split`);
         return [sentence]
       case 'lo':
         return splitIntoSentencesSimpleLo(sentence)
