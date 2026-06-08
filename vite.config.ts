@@ -13,5 +13,10 @@ export default defineConfig({
       external: [], // mark dependencies as external here
     },
   },
-  plugins: [dts()],
+  plugins: [
+    dts({
+      entryRoot: 'src',
+      insertTypesEntry: true,
+    }),
+  ],
 })
